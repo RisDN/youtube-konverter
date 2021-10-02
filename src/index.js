@@ -15,6 +15,7 @@ app.on('ready', () => {
         }
     })
     //mainAblak.webContents.openDevTools()
+    mainAblak.setIcon(path.join(__dirname, 'src/ikon.ico'))
     mainAblak.loadFile(path.join(__dirname, 'index.html'));
     mainAblak.removeMenu(true)
 
@@ -24,6 +25,7 @@ app.on('ready', () => {
         frame: false,
         resizable: false
     })
+    betoltoKepernyo.setIcon(path.join(__dirname, 'src/ikon.ico'))
     betoltoKepernyo.removeMenu(true)
     betoltoKepernyo.loadFile(path.join(__dirname, 'betolto.html'));
 
