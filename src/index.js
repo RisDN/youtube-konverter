@@ -1,20 +1,21 @@
-const { app, BrowserWindow, Notification } = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
+if (require('electron-squirrel-startup')) return app.quit();
 
 let mainAblak, betoltoKepernyo
 app.on('ready', () => {
     mainAblak = new BrowserWindow({
-        width: 850,
-        height: 500,
-        show: false,
-        resizable: false,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-            enableRemoteModule: true
-        }
-    })
-    //mainAblak.webContents.openDevTools()
+            width: 850,
+            height: 500,
+            show: false,
+            resizable: false,
+            webPreferences: {
+                nodeIntegration: true,
+                contextIsolation: false,
+                enableRemoteModule: true
+            }
+        })
+        //mainAblak.webContents.openDevTools()
     mainAblak.setIcon(path.join(__dirname, 'src/ikon.ico'))
     mainAblak.loadFile(path.join(__dirname, 'index.html'));
     mainAblak.removeMenu(true)
@@ -23,7 +24,8 @@ app.on('ready', () => {
         width: 450,
         height: 410,
         frame: false,
-        resizable: false
+        resizable: false,
+        icon: path.join(__dirname, 'src/ikon.ico')
     })
     betoltoKepernyo.setIcon(path.join(__dirname, 'src/ikon.ico'))
     betoltoKepernyo.removeMenu(true)
